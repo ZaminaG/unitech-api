@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: unitech
+  main:
+    banner-mode: off
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yaml
+  redis:
+    host: localhost
+    port: 6379
+    password: test
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/unitech
+    username: postgres
+    password: postgres
+    hikari:
+      poolName: MsUserHikariPool
+      auto-commit: false
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+    show-sql: true
+
+  jwt:
+    token:
+      validity: 18000
+      prefix: Bearer
+    signing:
+      key: signing
+    header:
+      string: Authorization

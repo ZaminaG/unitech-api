@@ -1,0 +1,8 @@
+[
+  {
+    "iban": "AA555",
+    "status": "ACTIVE",
+    "balance": 10,
+    "currency": "AZN"
+  }
+]
